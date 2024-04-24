@@ -1,17 +1,23 @@
-const { defineConfig } = require('@vue/cli-service');
+// const { defineConfig } = require('@vue/cli-service');
 
-module.exports = defineConfig({
-  transpileDependencies: true,
+// module.exports = defineConfig({
+//   transpileDependencies: true,
 
-  chainWebpack: config => {
-    config.module
-      .rule('glb')
-      .test(/\.(glb|gltf)$/)
-      .use('file-loader')
-      .loader('file-loader')
-      .options({
-        name: '[name].[ext]'
-      })
-      .end()
-  }
-});
+//   chainWebpack: config => {
+//     config.module
+//       .rule('glb')
+//       .test(/\.(glb|gltf)$/)
+//       .use('file-loader')
+//       .loader('file-loader')
+//       .options({
+//         name: '[name].[ext]'
+//       })
+//       .end()
+//   }
+// });
+
+module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/GITprojetSAORIE/'
+    : '/'
+}
