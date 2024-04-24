@@ -58,21 +58,22 @@ export default defineComponent({
       this.isMenuVisible = false;
       document.body.classList.remove('no-scroll');
     },
+    
     isHome(): boolean {
-    return this.$route.name === 'expertise' || this.$route.name === 'home';
-},
+      return this.$route.name === 'expertise' || this.$route.name === 'home';
+    },
 
-getImagePath(): string {
-    return this.isHome() ? require('../../site_aghi_soso/public/img/test_logo.png') : require('../../site_aghi_soso/public/img/test_logo_bleu.png');
-},
+    getImagePath(): string {
+      return this.isHome() ? require('../public//img/test_logo.png') : require('../public/img/test_logo_bleu.png');
+    },
 
-isHomeBurger(): boolean {
-    return this.$route.name === 'expertise' || this.$route.name === 'home';
-},
+    isHomeBurger(): boolean {
+      return this.$route.name === 'expertise' || this.$route.name === 'home';
+    },
 
-getImagePath2(): string {
-    return this.isHomeBurger() ? require('../../site_aghi_soso/public/img/burger_blanc.svg') : require('../../site_aghi_soso/public/img/blue_burger.svg');
-},
+    getImagePath2(): string {
+      return this.isHomeBurger() ? require('../public/img/burger_blanc.svg') : require('../public/img/blue_burger.svg');
+    },
 
     scrollToTop() {
       window.scrollTo({
@@ -106,12 +107,12 @@ html {
   overflow: hidden;
 }
 
-body{
+body {
   z-index: -8;
   background-color: var(--backroud-light);
 }
 
-canvas{
+canvas {
   width: 100%;
   height: 100%;
 }
