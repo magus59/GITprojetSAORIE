@@ -28,9 +28,9 @@
     <router-link @click="scrollToTop" to="/">
     </router-link>
     <router-link @click="scrollToTop" to="/">
-      <img class="mobile_logo" :src="getImagePath($route)" alt="logo">
+      <img class="mobile_logo" :src="getImagePath()" alt="logo">
     </router-link>
-    <img class="menu_burger" @click="toggleMenu" :src="getImagePath2($route)" alt="menu burger">
+    <img class="menu_burger" @click="toggleMenu" :src="getImagePath2()" alt="menu burger">
     <router-view />
   </div>
 </template>
@@ -60,19 +60,21 @@ export default defineComponent({
       document.body.classList.remove('no-scroll');
     },
     isHome(): boolean {
-      return (this.$route as RouteLocationNormalized).name === 'expertise' || (this.$route as RouteLocationNormalized).name === 'home' ;
-    },
-    getImagePath(route: RouteLocationNormalized): string {
-      return this.isHome() ? require('../../site_aghi_soso/public/img/test_logo.png') : require('../../site_aghi_soso/public/img/test_logo_bleu.png');
-    },
-    isHomeBurger(): boolean {
-      return (this.$route as RouteLocationNormalized).name === 'expertise' 
-      || (this.$route as RouteLocationNormalized).name === 'home'
-      ;
-    },
-    getImagePath2(route: RouteLocationNormalized): string {
-      return this.isHomeBurger() ? require('../../site_aghi_soso/public/img/burger_blanc.svg') : require('../../site_aghi_soso/public/img/blue_burger.svg');
-    },
+    return this.$route.name === 'expertise' || this.$route.name === 'home';
+},
+
+getImagePath(): string {
+    return this.isHome() ? require('../../site_aghi_soso/public/img/test_logo.png') : require('../../site_aghi_soso/public/img/test_logo_bleu.png');
+},
+
+isHomeBurger(): boolean {
+    return this.$route.name === 'expertise' || this.$route.name === 'home';
+},
+
+getImagePath2(): string {
+    return this.isHomeBurger() ? require('../../site_aghi_soso/public/img/burger_blanc.svg') : require('../../site_aghi_soso/public/img/blue_burger.svg');
+},
+
     scrollToTop() {
       window.scrollTo({
         top: 0,
