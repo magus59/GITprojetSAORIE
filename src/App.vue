@@ -38,7 +38,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { RouteLocationNormalized } from 'vue-router';
 
 export default defineComponent({
   data() {
